@@ -4,25 +4,41 @@
         args="0 0 0 0 0 0 map camera_link" />
 
   <node pkg="octomap_server" type="octomap_server_node" name="octomap_server">
-    <!-- 分辨率设置 -->
-    <param name="resolution" value="0.05" />
+    <!-- 降低分辨率以获得更细致的栅格 (比如0.05改为0.02) -->
+    <param name="resolution" value="0.02" />
     
-    <!-- 使用map作为固定坐标系 -->
+    <!-- 坐标系设置 -->
     <param name="frame_id" type="string" value="map" />
     <param name="base_frame_id" type="string" value="camera_link" />
     
-    <!-- 传感器参数设置 -->
-    <param name="sensor_model/max_range" value="10.0" />
-    <param name="latch" value="true" />
-    <param name="pointcloud_max_z" value="3.0" />
-    <param name="pointcloud_min_z" value="-1.0" />
+    <!-- 概率hit和miss的阈值设置，可以调整这些值来改变地图更新的敏感度 -->
+    <param name="sensor_model/hit" value="0.7" />
+    <param name="sensor_model/miss" value="0.4" />
+    <param name="sensor_model/min" value="0.12" />
+    <param name="sensor_model/max" value="0.97" />
+    
+    <!-- 设置较小的最大范围以减少噪声 -->
+    <param name="sensor_model/max_range" value="5.0" />
+    
+    <!-- 对点云进行过滤的高度范围 -->
+    <param name="pointcloud_max_z" value="2.0" />
+    <param name="pointcloud_min_z" value="-0.5" />
+    
+    <!-- 设置八叉树的显示范围 -->
+    <param name="occupancy_max_z" value="2.0" />
+    <param name="occupancy_min_z" value="-0.5" />
+    
+    <!-- 是否过滤地面点 -->
+    <param name="filter_ground" value="false" />
+    
+    <!-- 设置占据概率阈值 -->
+    <param name="occupation_thresh" value="0.7" />
+    
+    <!-- 设置空闲概率阈值 -->
+    <param name="probability_hit" value="0.7" />
+    <param name="probability_miss" value="0.4" />
     
     <!-- 话题重映射 -->
     <remap from="/cloud_in" to="/yolov5/detection_pointcloud" />
-
-    <!-- 启用调试输出 -->
-    <param name="filter_ground" value="false" />
-    <param name="occupancy_min_z" value="-1.0" />
-    <param name="occupancy_max_z" value="3.0" />
   </node>
 </launch>
