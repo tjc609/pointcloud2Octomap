@@ -5,7 +5,7 @@ this code can be used for transfom the pointcloud into octomap
 
    cd catkin_ws/src
 
-   git clone https://github.com/RuPingCen/publish_pointcloud.git
+   git clone https://github.com/tjc609/pointcloud2Octomap.git
 
    cd ..
 
