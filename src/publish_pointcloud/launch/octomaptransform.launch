@@ -1,8 +1,10 @@
 <launch>
   <!-- 添加静态坐标转换 -->
-  <node pkg="tf2_ros" type="static_transform_publisher" name="map_to_camera_link" 
-        args="0 0 0 0 0 0 map camera_link" />
-
+  <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="map_to_camera_link" 
+        args="0 0 0 0 0 0 map camera_link" /> -->
+  <!-- 添加map到world的静态转换 -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="map_to_world" 
+        args="0 0 0 0 0 0 world map" />
   <node pkg="octomap_server" type="octomap_server_node" name="octomap_server">
     <!-- 降低分辨率以获得更细致的栅格 (比如0.05改为0.02) -->
     <param name="resolution" value="0.02" />

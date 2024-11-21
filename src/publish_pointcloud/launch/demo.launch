@@ -4,7 +4,7 @@
   <include file="$(find publish_pointcloud)/launch/octomaptransform.launch" />
 
   <!-- RViz with debug output -->
-  <node pkg="rviz" type="rviz" name="$(anon rviz)" respawn="false" output="screen" 
+  <!-- <node pkg="rviz" type="rviz" name="$(anon rviz)" respawn="false" output="screen" 
         args="-d $(find publish_pointcloud)/rviz/OctomapShow.rviz">
-  </node>
+  </node> -->
 </launch>
