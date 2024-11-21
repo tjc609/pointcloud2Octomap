@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <!-- 添加static_transform_publisher -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="camera_link_broadcaster"
+        args="0 0 0 0 0 0 map d435_depth_optical_frame" />
+
+  <!-- 深度图像转点云的节点 -->
+  <node pkg="nodelet" type="nodelet" name="standalone_nodelet" args="manager"/>
+  
+  <node pkg="nodelet" type="nodelet" name="depth_to_pointcloud" 
+        args="load depth_image_proc/point_cloud_xyz standalone_nodelet">
+    <remap from="camera_info" to="/d435/depth/camera_info"/>
+    <remap from="image_rect" to="/d435/depth/image_raw"/>
+    <remap from="points" to="/pointcloud/output"/>
+  </node>
+
+  <!-- Load octomap launch -->
+  <include file="$(find publish_pointcloud)/launch/octomaptransform.launch" />
+
+  <!-- RViz -->
+  <node pkg="rviz" type="rviz" name="$(anon rviz)" respawn="false" output="screen" 
+        args="-d $(find publish_pointcloud)/rviz/OctomapShow.rviz"/>
+</launch>

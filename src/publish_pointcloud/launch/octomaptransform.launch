@@ -1,0 +1,18 @@
+<launch>
+  <node pkg="octomap_server" type="octomap_server_node" name="octomap_server">
+    <!-- 修改分辨率如果需要的话 -->
+    <param name="resolution" value="0.05" />
+    
+    <!-- 修改frame_id为相机的frame -->
+    <param name="frame_id" type="string" value="d435_depth_optical_frame" />
+    
+    <!-- 其他参数 -->
+    <param name="sensor_model/max_range" value="5.0" />
+    <param name="latch" value="true" />
+    <param name="pointcloud_max_z" value="2.0" />
+    <param name="pointcloud_min_z" value="-2.0" />
+    
+    <!-- 确保话题映射正确 -->
+    <remap from="/cloud_in" to="/pointcloud/output" />
+  </node>
+</launch>

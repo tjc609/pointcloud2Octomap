@@ -1,0 +1,18 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/chengzai/ur_ws/devel/lib/python3/dist-packages",
+        "/home/chengzai/workspace/realsense_ws/devel/lib/python3/dist-packages",
+        "/home/chengzai/Elite_ros/devel/lib/python3/dist-packages",
+        "/home/chengzai/ros_ws_104/devel/lib/python3/dist-packages",
+        "/home/chengzai/ros_ws/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/chengzai/ur_ws/devel/lib/python3/dist-packages",
+        "/home/chengzai/workspace/realsense_ws/devel/lib/python3/dist-packages",
+        "/home/chengzai/Elite_ros/devel/lib/python3/dist-packages",
+        "/home/chengzai/ros_ws_104/devel/lib/python3/dist-packages",
+        "/home/chengzai/ros_ws/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ]
+}

@@ -1,0 +1,8 @@
+prefix=/home/chengzai/catkin_ws/devel
+
+Name: publish_pointcloud
+Description: Description of publish_pointcloud
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
