@@ -117,7 +117,7 @@ Visualization Manager:
       Size (Pixels): 3
       Size (m): 0.00999999978
       Style: Flat Squares
-      Topic: /pointcloud/output
+      Topic: /yolov5/detection_pointcloud
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
@@ -138,7 +138,7 @@ Visualization Manager:
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: d435_link
+    Fixed Frame: camera_link
     Frame Rate: 60
   Name: root
   Tools:
